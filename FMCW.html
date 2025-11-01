@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FMCW Radars</title>
+  <link rel="icon" href="Media/ESC/PCB_top_view.png" type="image/png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #e0f7f9;
+      color: #ffffff;
+    }
+
+    a {
+        text-decoration: none; 
+        color: #0091be; 
+    }
+
+    a:hover {
+        text-decoration: none; 
+        color: #0ec5fd; 
+    }
+
+    header {
+      background: #005872;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: #005872;
+      text-decoration: none;
+      margin: 0px 17px;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover { color: #00a2d3; }
+
+    main {
+      padding: 50px 20px;
+      background: #005872;
+      min-height: auto;
+    }
+
+    h1, h2 {
+      color: #ffffff;
+    }
+
+   
+    .videos-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    }
+
+    
+    .video-box {
+    width: 100%;
+    max-width: 900px;        
+    aspect-ratio: 16 / 9;    
+    background-color: #000;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+    }
+
+
+    .video-box video,
+    .video-box iframe {
+
+    max-width: 100%;
+    max-height: 100%;
+
+
+    width: auto;
+    height: auto;
+
+    display: block;   
+    margin: 0 auto;
+    border-radius: 6px;
+    }
+
+ 
+    @media (max-width: 640px) {
+    .video-box {
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+    }
+
+     
+
+    .project-detail {
+      background: #ffffff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: 0 auto 30px auto;
+    }
+
+    .project-detail h2 {
+      color: #005872;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .project-detail p {
+      text-align: justify;
+      margin: 40px  20px;
+    }
+
+    .project-media {
+    display: flex;           
+    flex-wrap: wrap;         
+    justify-content: center; 
+    gap: 20px;               
+    margin: 20px 20px;          
+    }
+
+    .project-media img,
+    .project-media video {
+    max-width: 100%;         
+    height: auto;            
+    border-radius: 10px;     
+    }
+
+
+    .project-downloads ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-downloads li {
+      margin: 10px 20px;
+    }
+
+    .project-downloads a {
+      color: #005872;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .project-downloads a:hover {
+      color: #00a2d3;
+    }
+
+    h3 {
+      margin: 20px  20px;    
+    }
+
+
+
+    footer {
+        background: #005872;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      footer p,
+      footer ul {
+        margin: 10px 0;
+      }
+
+      footer ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      footer ul li {
+        display: inline;
+        margin: 0 10px;
+      }
+
+      footer ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      footer ul li a:hover {
+        color: #fff;
+      }
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Marco Mura</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Contacts.html">Contacts</a>
+  </nav>
+
+  <main>
+    <div class="project-detail">
+      <h2>RRAM-Based Analog Circuit for Matrix Inversion: Simulation and Analysis</h2>
+
+      <div class="project-description">
+        <p>
+            During my internship at <a href="https://www.techboardgroup.com/en/" target="_blank" rel="noopener noreferrer">Techboard Group</a>,
+            I had the opportunity to work for six months on mmWave FMCW RADAR systems.
+            In particular, I experimented with commercial RADAR modules for People Tracking and Fall Detection applications.
+            My work focused on the design of PCB carrier boards for integrating RADAR modules into embedded systems
+            based on ESP32 microcontrollers, as well as on the development of data visualization interfaces.
+            <br><br>
+            Below are two short demo videos showcasing the operation of the developed systems.
+
+        </p>
+
+      
+        <div class="project-media">
+
+            <section class="videos-section">
+            
+
+            
+            <div class="video-box">
+                <video src="Media/FMCW/Tracking_Sensor.mp4" controls playsinline></video>
+            </div>
+
+         
+            <div class="video-box">
+                <video src="Media/FMCW/Fall_Sensor.mp4" controls playsinline></video>
+            </div>
+
+            </section>
+
+        </div>
+      
+
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Contact: 
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muramarco99@gmail.com" target="_blank">
+        muramarco99@gmail.com
+        </a>
+    </p>
+  </footer>
+</body>
+</html>
