@@ -7,7 +7,20 @@
   <link rel="icon" href="Media/ESC/PCB_top_view.png" type="image/png" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+window.MathJax = {
+  chtml: {
+    displayAlign: 'center'
+  },
+  tex: {
+    tags: 'all'
+  }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
   <style>
     body {
@@ -72,7 +85,8 @@
       color: #333;
       padding: 20px;
       border-radius: 10px;
-      max-width: 900px;
+      max-width: 100%;
+      overflow-x: hidden;
       margin: 0 auto 30px auto;
     }
 
@@ -162,11 +176,15 @@
         color: #fff;
       }
 
-      mjx-container {
-        overflow-x: auto;
-        overflow-y: hidden;
-        max-width: 100%;
+      /* MathJax responsive su mobile */
+      @media (max-width: 768px) {
+        mjx-container[jax="CHTML"][display="true"] {
+          max-width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+        }
       }
+
 
 
   </style>
