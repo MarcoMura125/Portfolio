@@ -32,10 +32,7 @@ window.MathJax = {
       color: #ffffff;
     }
 
-    body, main, .project-detail, .project-description {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
+  
 
     a {
         text-decoration: none; 
@@ -90,7 +87,7 @@ window.MathJax = {
       color: #333;
       padding: 20px;
       border-radius: 10px;
-      max-width: 100%;
+      max-width: 900px;
       overflow-x: visible;
       margin: 0 auto 30px auto;
     }
@@ -188,14 +185,26 @@ window.MathJax = {
         box-sizing: border-box;
       }
 
-      /* Scroll orizzontale solo su mobile */
-      @media (max-width: 768px) {
-        mjx-container[display="true"] {
+      /* Scroll orizzontale solo su mobile in verticale */
+      @media (max-width: 1024px) and (orientation: portrait) {
+        .math-wrapper {
           overflow-x: auto;
           overflow-y: hidden;
-          -webkit-overflow-scrolling: touch;
+          -webkit-overflow-scrolling: touch; /* scroll fluido su iOS */
+        }
+
+        .math-wrapper mjx-container[display="true"] {
+          min-width: max-content; /* evita che il container si restringa */
         }
       }
+
+      /* Disabilita scroll su orizzontale e desktop */
+      @media (orientation: landscape), (min-width: 1025px) {
+        .math-wrapper {
+          overflow-x: visible;
+        }
+      }
+
 
 
 
@@ -243,6 +252,7 @@ window.MathJax = {
                 color: #005872;
                 text-align: center;
                 margin-top: 1.5em;
+                margin-bottom: 1em;
             ">
             I. Propagation of Electromagnetic Modes in Parallel-Plate Waveguides
             </span>
@@ -482,6 +492,7 @@ window.MathJax = {
                 color: #005872;
                 text-align: center;
                 margin-top: 1.5em;
+                margin-bottom: 1em;
             ">
             II. Quantum Confinement in the Infinite Square Well
             </span>
@@ -562,6 +573,7 @@ window.MathJax = {
                 color: #005872;
                 text-align: center;
                 margin-top: 1.5em;
+                margin-bottom: 1em;
             ">
             III. Mathematical Analogy Between Waveguide Modes and Quantum Bound States
             </span>
@@ -651,5 +663,34 @@ window.MathJax = {
         </a>
     </p>
   </footer>
+  <script>
+  // Wrap MathJax display equations in .math-wrapper after MathJax startup
+  (function(){
+    function wrapMath() {
+      const sel = document.querySelectorAll('mjx-container[display="true"]');
+      sel.forEach(function(container){
+        if (container.closest('.math-wrapper')) return;
+        var wrapper = document.createElement('div');
+        wrapper.className = 'math-wrapper';
+        container.parentNode.insertBefore(wrapper, container);
+        wrapper.appendChild(container);
+      });
+    }
+
+    if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
+      MathJax.startup.promise.then(function(){
+        // Wait a tick in case MathJax finishes rendering slightly later
+        setTimeout(wrapMath, 0);
+      }).catch(function(){
+        setTimeout(wrapMath, 500);
+      });
+    } else {
+      // Fallback: try after DOM loaded
+      document.addEventListener('DOMContentLoaded', function(){
+        setTimeout(wrapMath, 500);
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
