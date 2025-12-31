@@ -32,6 +32,11 @@ window.MathJax = {
       color: #ffffff;
     }
 
+    body, main, .project-detail, .project-description {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     a {
         text-decoration: none; 
         color: #0091be; 
@@ -86,7 +91,7 @@ window.MathJax = {
       padding: 20px;
       border-radius: 10px;
       max-width: 100%;
-      overflow-x: hidden;
+      overflow-x: visible;
       margin: 0 auto 30px auto;
     }
 
@@ -176,14 +181,22 @@ window.MathJax = {
         color: #fff;
       }
 
-      /* MathJax responsive su mobile */
+      /* MathJax display equations responsive */
+      mjx-container[display="true"] {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Scroll orizzontale solo su mobile */
       @media (max-width: 768px) {
-        mjx-container[jax="CHTML"][display="true"] {
-          max-width: 100%;
+        mjx-container[display="true"] {
           overflow-x: auto;
           overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
         }
       }
+
 
 
 
